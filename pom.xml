@@ -71,9 +71,14 @@
                 <version>2.8.4</version>
                 <configuration>
                     <sdk>
-                        <!-- platform or api level (api level 8 = platform 2.2)-->
+                        <!-- platform or api level (api level 7 = platform 2.1.2)-->
                         <platform>7</platform>
                     </sdk>
+                    <emulator>
+                        <!-- the name of the avd device to use for starting the emulator -->
+                        <avd>Nexus</avd>
+                    </emulator>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
                 <extensions>true</extensions>
             </plugin>
