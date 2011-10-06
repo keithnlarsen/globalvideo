@@ -18,6 +18,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.android.maps</groupId>
+            <artifactId>maps</artifactId>
+            <version>8_r1</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- Make sure this is below the android dependencies -->
         <dependency>
             <groupId>com.pivotallabs</groupId>
@@ -31,6 +38,25 @@
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.roboguice</groupId>
+            <artifactId>roboguice</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+                <groupId>com.googlecode.androidannotations</groupId>
+                <artifactId>androidannotations</artifactId>
+                <version>2.1.2</version>
+                <scope>compile</scope>
+        </dependency>
+        <dependency>
+                <groupId>com.googlecode.androidannotations</groupId>
+                <artifactId>androidannotations</artifactId>
+                <classifier>api</classifier>
+                <version>2.1.2</version>
         </dependency>
     </dependencies>
 
@@ -53,4 +79,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+                <id>releases-repository</id>
+                <name>androidannotations Maven2 repository</name>
+                <url>http://repository.excilys.com/content/repositories/releases/</url>
+        </repository>
+    </repositories>
 </project>

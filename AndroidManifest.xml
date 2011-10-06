@@ -6,7 +6,7 @@
     <uses-sdk android:minSdkVersion="7" />
 
     <application android:label="@string/app_name">
-        <activity android:name="ca.shawmedia.globaltv.MyActivity" android:label="@string/app_name">
+        <activity android:name="ca.shawmedia.globaltv.MyActivity_" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
