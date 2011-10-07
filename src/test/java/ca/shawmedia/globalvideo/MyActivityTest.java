@@ -1,4 +1,4 @@
-package ca.shawmedia.globaltv;
+package ca.shawmedia.globalvideo;
 
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,7 +44,7 @@ public class MyActivityTest {
     @Test
     public void should_Set_Text_View_Value_When_Button_Clicked() throws Exception {
         // -- Setup --
-        String expectedText = "Hello testing";
+        String expectedText = "Hello testing!";
 
         // -- Test --
         _editText.setText("testing");

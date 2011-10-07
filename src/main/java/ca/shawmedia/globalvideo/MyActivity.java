@@ -1,4 +1,4 @@
-package ca.shawmedia.globaltv;
+package ca.shawmedia.globalvideo;
 
 import android.app.Activity;
 import android.widget.EditText;
@@ -19,6 +19,6 @@ public class MyActivity extends Activity {
     @Click
     void myButton() {
          String name = myInput.getText().toString();
-         textView.setText("Hello " + name);
+         textView.setText("Hello " + name + "!");
     }
 }
