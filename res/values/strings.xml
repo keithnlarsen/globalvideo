@@ -2,4 +2,14 @@
 <resources>
     <string name="hello">Hello Android!</string>
     <string name="app_name">Global Video</string>
+    <string name="FeaturedCategoryID">1437180448</string>
+    <string name="BaseRotatorUrl">http://feeds.theplatform.com/ps/JSON/PortalService/2.1/getReleaseList?PID=PfmXKfbO2F5QP6SBjoQ7_43_rooELlMU&amp;startIndex=1&amp;endIndex=10&amp;field=title&amp;field=description&amp;field=thumbnailURL&amp;contentCustomField=Subtitles&amp;contentCustomField=ShortDescription&amp;contentCustomField=Part&amp;contentCustomField=Subject&amp;contentCustomField=RelatedLinks</string>
+    <string name="BaseReleaseUrl">http://feeds.theplatform.com/ps/JSON/PortalService/2.2/getReleaseList?PID=W_qa_mi18Zxv8T8yFwmc8FIOolo_tp_g&amp;field=PID&amp;field=categories&amp;field=contentID&amp;field=title&amp;field=description&amp;field=URL&amp;field=length&amp;field=airdate&amp;field=categoryIDs&amp;field=thumbnailURL&amp;field=assets&amp;contentCustomField=Show&amp;contentCustomField=Episode&amp;contentCustomField=Season&amp;query=ContentCustomBoolean|mDialogIngestSuccess|true&amp;query=Categories|z/Mobile GlobalTV</string>
+    <string name="BaseCategoryUrl">http://feeds.theplatform.com/ps/JSON/PortalService/2.2/getCategoryList?PID=W_qa_mi18Zxv8T8yFwmc8FIOolo_tp_g&amp;field=ID&amp;field=title&amp;field=fullTitle&amp;field=description&amp;field=depth&amp;field=hasReleases&amp;field=thumbnailURL&amp;customField=DisplayTitle&amp;customField=HomeImageURL&amp;customField=ShowStatus&amp;customField=ShowStatusMessage&amp;customField=ShowSubHeader&amp;customField=AlternateTitle&amp;query=CustomText|PlayerTag|z/Mobile GlobalTV</string>
+    <string name="BaseScheduleUrl">http://api.foodnetwork.ca/2.1/Broadcast.svc/json/GetScheduleByDateLight?days=1&amp;stripHtml=true</string>
+    <string name="RootCategoryName">MOBGLOB</string>
+    <string name="WebPropertyID">UA-840802-27</string>
+	<string name="AboutPageUrl">http://www.globaltv.com/apps/mvp/ipad/about.html</string>
+    <string name="FAQPageUrl">http://www.globaltv.com/apps/mvp/ipad/ipadFAQ.html</string>
+    <string name="FeedbackPageBaseUrl">http://www.globaltv.com/apps/mvp/ipad/feedback.html</string>
 </resources>
