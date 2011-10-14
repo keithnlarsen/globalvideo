@@ -35,6 +35,8 @@ public class ContentRotatorServiceTest {
         // -- Setup --
         String jsonResponse = "anything";
         List<RotatorContent> contentList = new ArrayList<RotatorContent>();
+
+        // -- Expectations --
         when(mockGateway.GetContentRotatorFeedData()).thenReturn(jsonResponse);
         when(mockParser.ParseListFrom(jsonResponse)).thenReturn(contentList);
         InOrder inOrder = inOrder(mockGateway, mockParser);

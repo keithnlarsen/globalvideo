@@ -18,7 +18,7 @@ public class MyActivity extends Activity {
 
     @Click
     void myButton() {
-         String name = myInput.getText().toString();
-         textView.setText("Hello " + name + "!");
+        String name = myInput.getText().toString();
+        textView.setText("Hello " + name + "!");
     }
 }
