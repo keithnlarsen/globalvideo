@@ -1,12 +1,11 @@
 package ca.shawmedia.globalvideo.infrastructure;
 
 import java.io.InputStream;
-import java.util.List;
 import java.util.Map;
 
 public class WebResponse {
 
-    public WebResponse(Map<String, List<String>> requestHeaderFields, int statusCode, InputStream body, String requestUri) {
+    public WebResponse(Map<String, String> requestHeaderFields, int statusCode, InputStream body, String requestUri) {
         this.statusCode = statusCode;
         this.body = new WebResponseBody(body);
         this.requestHeaderFields = requestHeaderFields;
@@ -21,7 +20,7 @@ public class WebResponse {
         return body;
     }
 
-    public Map<String, List<String>> getRequestHeadersFields() {
+    public Map<String, String> getRequestHeadersFields() {
         return requestHeaderFields;
     }
 
@@ -35,6 +34,6 @@ public class WebResponse {
 
     private int statusCode;
     private WebResponseBody body;
-    private Map<String, List<String>> requestHeaderFields;
+    private Map<String, String> requestHeaderFields;
     private String requestUri;
 }
