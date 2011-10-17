@@ -19,21 +19,20 @@ public class WebClient implements IWebClient{
     public WebResponse get(String Uri) {
         InputStream inputStream = null;
         int responseCode = 0;
+        DefaultHttpClient client;
         HttpGet method = new HttpGet(Uri);
-        try {
-            DefaultHttpClient client = null;
 
+        try {
 //            for (Map.Entry<String, String> entry : headers.entrySet()) {
 //                method.setHeader(entry.getKey(), entry.getValue());
 //            }
-
             client = getPromiscuousDefaultClient();
             HttpResponse response = client.execute(method);
 
             responseCode = response.getStatusLine().getStatusCode();
             inputStream = response.getEntity().getContent();
-
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
 

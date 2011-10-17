@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
 
 @RunWith(RobolectricTestRunner.class)
 public class ContentRotatorServiceTest {
-    IContentRotatorService sut;
+    IContentRotatorService contentRotatorService;
     IRotatorContentParser mockParser;
     IPlatformFeedsGateway mockGateway;
 
@@ -27,7 +27,7 @@ public class ContentRotatorServiceTest {
         mockGateway = mock(IPlatformFeedsGateway.class);
         mockParser = mock(IRotatorContentParser.class);
 
-        sut = new ContentRotatorService(mockGateway, mockParser);
+        contentRotatorService = new ContentRotatorService(mockGateway, mockParser);
     }
 
     @Test
@@ -42,12 +42,11 @@ public class ContentRotatorServiceTest {
         InOrder inOrder = inOrder(mockGateway, mockParser);
 
         // -- Test --
-        List<RotatorContent> actualContentList = sut.GetRotatorContentList();
+        List<RotatorContent> actualContentList = contentRotatorService.GetRotatorContentList();
 
         // -- Verify --
         inOrder.verify(mockGateway).GetContentRotatorFeedData();
         inOrder.verify(mockParser).ParseListFrom(jsonResponse);
         assertThat(actualContentList, equalTo(contentList));
-
     }
 }

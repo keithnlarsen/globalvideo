@@ -5,9 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static ca.shawmedia.globalvideo.helpers.InputStreamHelper.convertToInputStream;
@@ -27,10 +25,8 @@ public class WebResponseTest {
         // -- Setup --
         String expectBody = "first line of data\nsecond line of data.";
         String expectedUri = "http://uri.ca";
-        ArrayList<String> item = new ArrayList<String>();
-        item.add("test");
-        Map<String, List<String>> headers = new HashMap<String, List<String>>();
-        headers.put("id", item);
+        Map<String, String> headers = new HashMap<String, String>();
+        headers.put("id", "test");
 
         WebResponse response = new WebResponse(headers, 200, convertToInputStream(expectBody),expectedUri);
 
@@ -42,6 +38,6 @@ public class WebResponseTest {
         assertThat(response.getStatusCode(), is(200));
         assertThat(response.getBody().toString(), is(equalTo(expectBody)));
         assertThat(response.getRequestUri(), is(equalTo(expectedUri)));
-        assertThat(response.getRequestHeadersFields().get("id").get(0), is(equalTo("test")));
+        assertThat(response.getRequestHeadersFields().get("id"), is(equalTo("test")));
     }
 }
