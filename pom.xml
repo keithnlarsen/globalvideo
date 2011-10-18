@@ -6,9 +6,17 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>apk</packaging>
     <name>Global Video</name>
+
     <properties>
         <encoding>UTF-8</encoding>
-    </properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<java.version>1.6</java.version>
+		<android.version>1.6_r3</android.version>
+		<android.platform>4</android.platform>
+		<android.support.version>r3</android.support.version>
+	</properties>
 
     <dependencies>
         <dependency>
@@ -23,6 +31,12 @@
             <artifactId>maps</artifactId>
             <version>8_r1</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>android.support</groupId>
+            <artifactId>compatibility-v4</artifactId>
+            <version>r3</version>
         </dependency>
 
         <!-- Make sure this is below the android dependencies -->
@@ -61,17 +75,25 @@
         </dependency>
 
         <dependency>
-                <groupId>com.googlecode.androidannotations</groupId>
-                <artifactId>androidannotations</artifactId>
-                <version>2.1.2</version>
-                <scope>compile</scope>
+            <groupId>com.googlecode.androidannotations</groupId>
+            <artifactId>androidannotations</artifactId>
+            <version>2.1.2</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-                <groupId>com.googlecode.androidannotations</groupId>
-                <artifactId>androidannotations</artifactId>
-                <classifier>api</classifier>
-                <version>2.1.2</version>
+            <groupId>com.googlecode.androidannotations</groupId>
+            <artifactId>androidannotations</artifactId>
+            <classifier>api</classifier>
+            <version>2.1.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.viewpagerindicator</groupId>
+            <artifactId>library</artifactId>
+            <version>1.2.0</version>
+            <type>apklib</type>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -90,7 +112,7 @@
                     </sdk>
                     <emulator>
                         <!-- the name of the avd device to use for starting the emulator -->
-                        <avd>Nexus</avd>
+                        <avd>android22</avd>
                     </emulator>
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
@@ -111,5 +133,12 @@
             <name>codemodel Maven2 repository</name>
             <url>http://download.java.net/maven/2/</url>
         </repository>
+
+        <repository>
+            <id>com.jakewharton</id>
+            <name>viewpagerindicator Maven2 repository</name>
+            <url>http://r.jakewharton.com/maven/release</url>
+        </repository>
+
     </repositories>
 </project>
