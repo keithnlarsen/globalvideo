@@ -1,16 +1,10 @@
 package ca.shawmedia.globalvideo.models;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class RotatorContent {
 
-    public RotatorContent(String title, String subtitles, String shortDescription, String part, String subject, String relatedLinks, String description, String thumbnailURL) {
+    public RotatorContent(String title, String subtitles, String shortDescription, String part, String subject, String relatedLinks, String description, String thumbnailURL, Bitmap thumbnail) {
         this.title = title;
         this.subtitles = subtitles;
         this.shortDescription = shortDescription;
@@ -19,6 +13,7 @@ public class RotatorContent {
         this.relatedLinks = relatedLinks;
         this.description = description;
         this.thumbnailURL = thumbnailURL;
+        this.thumbnail = thumbnail;
     }
 
     public String getTitle() {
@@ -54,41 +49,16 @@ public class RotatorContent {
     }
 
     public Bitmap getThumbnail() {
-        if (thumbnail == null)
-            thumbnail = downloadImage(thumbnailURL);
-
         return thumbnail;
     }
 
-    String title;
-    String subtitles;
-    String shortDescription;
-    String part;
-    String subject;
-    String relatedLinks;
-    String description;
-    String thumbnailURL;
-    Bitmap thumbnail;
-
-    private Bitmap downloadImage(String fileUrl){
-        Bitmap bitmap = null;
-
-        try {
-            URL url;
-            url= new URL(fileUrl);
-
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream is = connection.getInputStream();
-
-            bitmap = BitmapFactory.decodeStream(is);
-        }
-        catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return bitmap;
-    }
+    private String title;
+    private String subtitles;
+    private String shortDescription;
+    private String part;
+    private String subject;
+    private String relatedLinks;
+    private String description;
+    private String thumbnailURL;
+    private Bitmap thumbnail;
 }

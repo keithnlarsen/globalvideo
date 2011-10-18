@@ -5,9 +5,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
+import com.googlecode.androidannotations.annotations.RoboGuice;
 import com.googlecode.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.main)
+@RoboGuice()
 public class MyActivity extends Activity {
 
     @ViewById

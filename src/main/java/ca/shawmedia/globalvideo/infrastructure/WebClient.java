@@ -26,6 +26,8 @@ public class WebClient implements IWebClient{
 //            for (Map.Entry<String, String> entry : headers.entrySet()) {
 //                method.setHeader(entry.getKey(), entry.getValue());
 //            }
+
+//            method.setHeader("key", "value");
             client = getPromiscuousDefaultClient();
             HttpResponse response = client.execute(method);
 
