@@ -1,16 +1,17 @@
-package ca.shawmedia.globalvideo;
+package ca.shawmedia.globalvideo.test.unit;
 
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import ca.shawmedia.globalvideo.MyActivity_;
+import ca.shawmedia.globalvideo.R;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 @RunWith(RobolectricTestRunner.class)
 public class MyActivityTest {

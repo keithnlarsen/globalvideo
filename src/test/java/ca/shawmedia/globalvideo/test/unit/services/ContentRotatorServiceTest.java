@@ -1,8 +1,10 @@
-package ca.shawmedia.globalvideo.services;
+package ca.shawmedia.globalvideo.test.unit.services;
 
 import ca.shawmedia.globalvideo.gateways.IPlatformFeedsGateway;
 import ca.shawmedia.globalvideo.models.RotatorContent;
 import ca.shawmedia.globalvideo.parsers.IRotatorContentParser;
+import ca.shawmedia.globalvideo.services.ContentRotatorService;
+import ca.shawmedia.globalvideo.services.IContentRotatorService;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import org.junit.Before;
 import org.junit.Test;

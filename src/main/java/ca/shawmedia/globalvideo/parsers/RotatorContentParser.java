@@ -16,7 +16,6 @@ import java.util.Map;
 
 public class RotatorContentParser implements IRotatorContentParser{
 
-    @Inject
     IWebClient webClient;
 
     @Inject

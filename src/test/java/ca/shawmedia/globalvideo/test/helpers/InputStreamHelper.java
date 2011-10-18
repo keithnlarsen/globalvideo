@@ -1,4 +1,4 @@
-package ca.shawmedia.globalvideo.helpers;
+package ca.shawmedia.globalvideo.test.helpers;
 
 import android.graphics.Bitmap;
 

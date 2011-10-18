@@ -1,5 +1,6 @@
-package ca.shawmedia.globalvideo.infrastructure;
+package ca.shawmedia.globalvideo.test.unit.infrastructure;
 
+import ca.shawmedia.globalvideo.infrastructure.WebResponse;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,7 +9,7 @@ import org.junit.runner.RunWith;
 import java.util.HashMap;
 import java.util.Map;
 
-import static ca.shawmedia.globalvideo.helpers.InputStreamHelper.convertToInputStream;
+import static ca.shawmedia.globalvideo.test.helpers.InputStreamHelper.convertToInputStream;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

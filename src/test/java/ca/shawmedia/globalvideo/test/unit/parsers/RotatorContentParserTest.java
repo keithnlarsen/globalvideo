@@ -1,27 +1,45 @@
-package ca.shawmedia.globalvideo.parsers;
+package ca.shawmedia.globalvideo.test.unit.parsers;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import ca.shawmedia.globalvideo.R;
+import ca.shawmedia.globalvideo.infrastructure.IWebClient;
+import ca.shawmedia.globalvideo.infrastructure.WebResponse;
 import ca.shawmedia.globalvideo.models.RotatorContent;
+import ca.shawmedia.globalvideo.parsers.IRotatorContentParser;
+import ca.shawmedia.globalvideo.parsers.RotatorContentParser;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Matchers;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static ca.shawmedia.globalvideo.test.helpers.BitmapPixelMatcher.theSamePixelsAs;
+import static ca.shawmedia.globalvideo.test.helpers.InputStreamHelper.convertToInputStream;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricTestRunner.class)
 public class RotatorContentParserTest {
     IRotatorContentParser parser;
+    IWebClient mockWebClient;
+    WebResponse thumbnailWebResponse;
 
     @Before
     public void setup() throws Exception {
-        parser = new RotatorContentParser();
+        Bitmap expectedBitmap = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.icon);
+        thumbnailWebResponse = new WebResponse(null, 200, convertToInputStream(expectedBitmap), "http:any.ca");
+
+        mockWebClient = mock(IWebClient.class);
+
+        parser = new RotatorContentParser(mockWebClient);
     }
 
     @Test
@@ -52,6 +70,8 @@ public class RotatorContentParserTest {
             "http://a123.g.akamai.net/f/123/68811/1d/broadcastent.download.akamai.com/68961/Canwest_Broadcast_Entertainment/SNL_ipad_rotator.jpg",
             BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.icon))
         );
+        // -- Expectations --
+        when(mockWebClient.get(Matchers.<String>any())).thenReturn(thumbnailWebResponse);
 
         // -- Test --
         List<RotatorContent> actualContentList = parser.ParseListFrom(jsonResponse);
@@ -66,5 +86,9 @@ public class RotatorContentParserTest {
         assertThat(actualContentList.get(0).getSubject(), equalTo(expectedContentList.get(0).getSubject()));
         assertThat(actualContentList.get(0).getSubtitles(), equalTo(expectedContentList.get(0).getSubtitles()));
         assertThat(actualContentList.get(0).getThumbnailURL(), equalTo(expectedContentList.get(0).getThumbnailURL()));
+
+        assertThat(actualContentList.get(0).getThumbnail(), is(theSamePixelsAs(BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.icon))));
+//        assertThat(actualBitmap, is(theSamePixelsAs(expectedBitmap)));
+
     }
 }

@@ -1,9 +1,10 @@
-package ca.shawmedia.globalvideo.infrastructure;
+package ca.shawmedia.globalvideo.test.unit.infrastructure;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import ca.shawmedia.globalvideo.R;
+import ca.shawmedia.globalvideo.infrastructure.WebResponseBody;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,8 +12,8 @@ import org.junit.runner.RunWith;
 
 import java.io.InputStream;
 
-import static ca.shawmedia.globalvideo.helpers.BitmapPixelMatcher.theSamePixelsAs;
-import static ca.shawmedia.globalvideo.helpers.InputStreamHelper.convertToInputStream;
+import static ca.shawmedia.globalvideo.test.helpers.BitmapPixelMatcher.theSamePixelsAs;
+import static ca.shawmedia.globalvideo.test.helpers.InputStreamHelper.convertToInputStream;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
