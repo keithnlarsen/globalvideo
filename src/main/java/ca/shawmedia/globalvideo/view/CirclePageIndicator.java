@@ -222,12 +222,25 @@ public class CirclePageIndicator extends View implements PageIndicator {
             final float halfCircleLongSize = (count * 3 * mRadius) / 2;
             final float pointerValue = (mOrientation == HORIZONTAL) ? event.getX() : event.getY();
 
-            if ((mCurrentPage > 0) && (pointerValue < halfLongSize - halfCircleLongSize)) {
-                setCurrentItem(mCurrentPage - 1);
-                return true;
-            } else if ((mCurrentPage < count - 1) && (pointerValue > halfLongSize + halfCircleLongSize)) {
-                setCurrentItem(mCurrentPage + 1);
-                return true;
+            if (pointerValue < halfLongSize - halfCircleLongSize) {
+                if (mCurrentPage > 0) {
+                    setCurrentItem(mCurrentPage - 1);
+                    return true;
+                }
+                else if (mCurrentPage == 0) {
+                    setCurrentItem(count -1);
+                    return true;
+                }
+            }
+            else {
+                if (mCurrentPage < (count - 1)) {
+                    setCurrentItem(mCurrentPage + 1);
+                    return true;
+                }
+                else if (mCurrentPage == (count - 1)) {
+                    setCurrentItem(0);
+                    return true;
+                }
             }
         }
 

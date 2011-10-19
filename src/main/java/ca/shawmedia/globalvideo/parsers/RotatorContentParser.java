@@ -1,6 +1,10 @@
 package ca.shawmedia.globalvideo.parsers;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+import ca.shawmedia.globalvideo.R;
 import ca.shawmedia.globalvideo.infrastructure.IWebClient;
 import ca.shawmedia.globalvideo.infrastructure.WebResponse;
 import ca.shawmedia.globalvideo.models.RotatorContent;
@@ -9,6 +13,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +74,15 @@ public class RotatorContentParser implements IRotatorContentParser{
 
     public Bitmap GetThumbnail(String thumbnailUri) {
         Bitmap thumbnail = null;
+        Log.v("ThumbnailURL:", thumbnailUri);
+
+        try {
+            InetAddress[] x = InetAddress.getAllByName(thumbnailUri);
+        }
+        catch (UnknownHostException ex){
+            Log.v("Thumbnail", ex.toString());
+        }
+
         WebResponse response = webClient.get(thumbnailUri);
 
         if (response.isSuccessful()) {
@@ -75,7 +90,7 @@ public class RotatorContentParser implements IRotatorContentParser{
         }
         else {
             // TODO: set the thumbnail to some default here...
-            thumbnail = null;
+            BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.icon);
         }
         return thumbnail;
     }

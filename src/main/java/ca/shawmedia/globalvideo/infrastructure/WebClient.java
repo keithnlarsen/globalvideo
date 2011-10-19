@@ -18,7 +18,7 @@ public class WebClient implements IWebClient{
 
     public WebResponse get(String Uri) {
         InputStream inputStream = null;
-        int responseCode = 0;
+        int responseCode = 500;
         DefaultHttpClient client;
         HttpGet method = new HttpGet(Uri);
 

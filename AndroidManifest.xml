@@ -3,10 +3,9 @@
       package="ca.shawmedia.globalvideo"
       android:versionCode="1"
       android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="7" />
-
+    <uses-sdk android:minSdkVersion="4" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-            android:name=".GlobalVideoApplication"
             android:label="@string/app_name"
             android:icon="@drawable/icon">
         <activity android:name=".HomeActivity" android:label="@string/app_name">
