@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import ca.shawmedia.globalvideo.models.RotatorContent;
 
 public final class CarouselFragment extends Fragment {
@@ -26,9 +25,6 @@ public final class CarouselFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        TextView textView = new TextView(getActivity());
-        textView.setText("this is a test");
-
         ImageView imageView = new ImageView(getActivity());
 
         imageView.setImageBitmap(content.getThumbnail());
@@ -38,7 +34,6 @@ public final class CarouselFragment extends Fragment {
 		layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
 		layout.setGravity(Gravity.CENTER);
 		layout.addView(imageView);
-//        layout.addView(textView);
 
 		return layout;
 	}
